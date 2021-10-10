@@ -17,3 +17,7 @@ use **production mode** this funtionality on developer tools to check if nothing
 ### connection
 
 use **tunnel mode** to run remotely in different network
+
+## class 3.6 core components
+
+ScrollView is the same of View but with scroll.
