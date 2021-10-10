@@ -5,15 +5,15 @@
 ### logging
 
 ```js
-  console.log("logging")   // normal log on terminal
-  console.warn("logging")  // yellow log on terminal and mobile
+  console.log("logging")   // normal log on terminal/dev tools
+  console.warn("logging")  // yellow log on terminal/dev tools and mobile
   console.error("logging") // brokes the app
 ```
 
 ### production mode
 
-use this funtionality on developer tools to check if nothing is broken
+use **production mode** this funtionality on developer tools to check if nothing is broken
 
 ### connection
 
-use tunnel mode to run remotely in different network
+use **tunnel mode** to run remotely in different network
