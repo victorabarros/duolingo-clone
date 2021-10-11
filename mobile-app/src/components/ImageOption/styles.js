@@ -19,12 +19,21 @@ const styles = StyleSheet.create({
 
     alignItems: 'center',
   },
+  selectedOptionContainer: {
+    backgroundColor: "#DDF4FE",
+    borderColor: "#81D5FE",
+  },
   optionImage: {
     width: "100%",
     flex: 1
   },
   optionText: {
-
+    fontWeight: 'bold',
+    color: "black"
+  },
+  selectedOptionText: {
+    fontWeight: 'bold',
+    color: "#40BEF7"
   },
 });
 
