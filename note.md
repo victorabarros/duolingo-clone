@@ -61,3 +61,5 @@ const App = () => (
 
 export default App
 ```
+
+## class 3.11 prop types
