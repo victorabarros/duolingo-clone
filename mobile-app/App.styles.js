@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+
 const styles = StyleSheet.create({
   root: {
     flex: 1,
@@ -21,30 +22,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     alignContent: 'space-between',
-  },
-  optionContainer: {
-    // border
-    borderWidth: 2,
-    borderBottomWidth: 4,
-    borderColor: "lightgrey",
-    borderRadius: 10,
-
-    // size
-    width: '48%',
-    height: '48%',
-    alignItems: 'center',
-
-    // spacing
-    padding: 10,
-
-    alignItems: 'center',
-  },
-  optionImage: {
-    width: "100%",
-    flex: 1
-  },
-  optionText: {
-
   },
 });
 
