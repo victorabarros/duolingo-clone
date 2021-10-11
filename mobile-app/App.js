@@ -1,18 +1,23 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View } from 'react-native';
 import styles from './App.styles';
 import ImageOption from './src/components/ImageOption';
+import question from './assets/data/oneQuestionWithOption'
 
-
+const { title, options } = question
 console.log('starting')
 
 const App = () => (
   <View style={styles.root}>
-    <Text style={styles.title}>Wich of these is the "glass"?</Text>
+    <Text style={styles.title}>{title}</Text>
 
     <View style={styles.optionsContainer}>
-      {Array.from(Array(1).keys()).map(idx => (
-        <ImageOption key={idx} />
+      {options.map(({ id, image, text }) => (
+        <ImageOption
+          key={id}
+          image={image}
+          text={text}
+        />
       ))}
     </View>
 
