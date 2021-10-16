@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { Text, View } from 'react-native';
-import styles from './App.styles';
-import ImageOption from './src/components/ImageOption';
+import React, { useState } from 'react'
+import { Text, View } from 'react-native'
+import styles from './App.styles'
+import ImageOption from './src/components/ImageOption'
 import question from './assets/data/oneQuestionWithOption'
+import Button from './src/components/Button'
 
 const { title, options } = question
 console.log('starting')
+
+const onButtonPress = () => console.warn("button")
 
 const App = () => {
   const [selected, setSelected] = useState(undefined)
@@ -26,7 +29,10 @@ const App = () => {
         ))}
       </View>
 
+      <Button text="Check" onPress={onButtonPress} disabled={!selected} />
+
     </View>
-  );
+  )
 }
+
 export default App
