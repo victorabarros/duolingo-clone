@@ -1,28 +1,39 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, View, Alert } from 'react-native'
 import styles from './App.styles'
 import ImageOption from './src/components/ImageOption'
-import question from './assets/data/oneQuestionWithOption'
 import Button from './src/components/Button'
-
+import question from './assets/data/oneQuestionWithOption'
 const questions = [question]
+
 console.log('starting')
 
 const App = () => {
   const [selected, setSelected] = useState(undefined)
-  const [question, setQuestion] = useState(questions[0])
-  const { title, options } = question
+  const [questionIndex, setQuestionIndex] = useState(0)
+  const [question, setQuestion] = useState(questions[questionIndex])
 
+  useEffect(() => {
+    if (questionIndex >= questions.length) {
+      Alert.alert("You won")
+      setQuestionIndex(0)
+    } else {
+      setQuestion(questions[questionIndex])
+    }
+  }, [questionIndex])
 
   const onButtonPress = () => {
     if (selected.correct) {
       Alert.alert("correct")
       // TODO: move p next question
+      setQuestionIndex(questionIndex + 1)
     } else {
       Alert.alert("wrooong")
-      // TODO: move p next question
     }
+    setSelected(undefined)
   }
+
+  const { title, options } = question
 
   return (
     <View style={styles.root}>
