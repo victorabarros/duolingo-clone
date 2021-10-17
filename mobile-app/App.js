@@ -32,9 +32,7 @@ const App = () => {
     <View style={styles.root}>
       <OpenEndedQuestion
         question={question}
-        onCorrect={() => {
-          onCorrect
-        }}
+        onCorrect={onCorrect}
         onWrong={() => Alert.alert("wrooong")}
       />
       {/* <MultipleChoiceQuestion

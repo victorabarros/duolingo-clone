@@ -5,15 +5,21 @@ import PropTypes from 'prop-types'
 import styles from './styles'
 import questioner from '../../../assets/questioner.jpg'
 
+const isEqual = (string1, string2) => string1.toUpperCase().trim() === string2.toUpperCase().trim()
+
 const OpenEndedQuestion = ({ question, onCorrect, onWrong }) => {
   const [input, setInput] = useState('')
 
   const { title, answer } = question
 
   const onButtonPress = () => {
-    // TODO:
-    // hide keyboard
-    // check answer
+    // TODO: hide keyboard
+
+    isEqual(input, answer)
+      ? onCorrect()
+      : onWrong()
+
+    setInput('')
   }
 
   return (
