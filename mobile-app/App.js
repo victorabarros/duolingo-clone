@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { View, Alert } from 'react-native'
 import styles from './App.styles'
-import question from './assets/data/oneQuestionWithOption'
-import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
-const questions = [question]
+
+// import question from './assets/data/oneQuestionWithOption'
+// const questions = [question]
+import questions from './assets/data/openEndedQuestion'
+
+// import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
+import OpenEndedQuestion from './src/components/OpenEndedQuestion'
 
 
 const App = () => {
@@ -26,10 +30,18 @@ const App = () => {
 
   return (
     <View style={styles.root}>
-      <MultipleChoiceQuestion
+      <OpenEndedQuestion
+        question={question}
+        onCorrect={() => {
+          onCorrect
+        }}
+        onWrong={() => Alert.alert("wrooong")}
+      />
+      {/* <MultipleChoiceQuestion
         question={question}
         onCorrect={onCorrect}
-        onWrong={() => Alert.alert("wrooong")} />
+        onWrong={() => Alert.alert("wrooong")}
+      /> */}
     </View>
   )
 }

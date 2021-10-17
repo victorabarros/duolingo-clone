@@ -8,6 +8,8 @@ import styles from './styles'
 const MultipleChoiceQuestion = ({ question, onCorrect, onWrong }) => {
   const [selected, setSelected] = useState(undefined)
 
+  const { title, options } = question
+
   const onButtonPress = () => {
     selected.correct
       ? onCorrect()
@@ -15,8 +17,6 @@ const MultipleChoiceQuestion = ({ question, onCorrect, onWrong }) => {
 
     setSelected(undefined)
   }
-
-  const { title, options } = question
 
   return (
     <>
@@ -37,7 +37,7 @@ const MultipleChoiceQuestion = ({ question, onCorrect, onWrong }) => {
         })}
       </View>
 
-      <Button text="Check" onPress={onButtonPress} disabled={!selected} />
+      <Button onPress={onButtonPress} disabled={!selected} />
     </>
   )
 }
@@ -58,7 +58,7 @@ MultipleChoiceQuestion.propTypes = {
   onWrong: PropTypes.func,
 }
 
-Button.defaultProps = {
+MultipleChoiceQuestion.defaultProps = {
   onWrong: () => { },
 }
 

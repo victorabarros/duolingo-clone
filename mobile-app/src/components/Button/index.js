@@ -16,13 +16,14 @@ const Button = ({ text, onPress, disabled }) => {
 
 Button.propTypes = {
   onPress: PropTypes.func,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   disabled: PropTypes.bool,
 }
 
 Button.defaultProps = {
   onPress: () => console.log('click'),
   disabled: false,
+  text: 'Check'
 }
 
 export default Button
