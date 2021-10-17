@@ -5,6 +5,7 @@ import styles from './App.styles'
 // import question from './assets/data/oneQuestionWithOption'
 // const questions = [question]
 import questions from './assets/data/openEndedQuestion'
+import Header from './src/components/Header'
 
 // import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
 import OpenEndedQuestion from './src/components/OpenEndedQuestion'
@@ -30,6 +31,8 @@ const App = () => {
 
   return (
     <View style={styles.root}>
+      <Header progress={questionIndex / questions.length} />
+
       <OpenEndedQuestion
         question={question}
         onCorrect={onCorrect}
@@ -40,6 +43,7 @@ const App = () => {
         onCorrect={onCorrect}
         onWrong={() => Alert.alert("wrooong")}
       /> */}
+
     </View>
   )
 }
