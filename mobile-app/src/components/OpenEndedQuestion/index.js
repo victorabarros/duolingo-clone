@@ -46,7 +46,7 @@ const OpenEndedQuestion = ({ question, onCorrect, onWrong }) => {
       />
       {/* TODO: add clear scratch button */}
 
-      <Button onPress={onButtonPress} />
+      <Button onPress={onButtonPress} disabled={!input} />
     </>
   )
 }

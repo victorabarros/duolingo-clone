@@ -13,8 +13,9 @@ import OpenEndedQuestion from './src/components/OpenEndedQuestion'
 console.log("starting")
 
 const App = () => {
-  const [questionIndex, setQuestionIndex] = useState(1)
+  const [questionIndex, setQuestionIndex] = useState(0)
   const [question, setQuestion] = useState(questions[questionIndex])
+  const [lives, setLives] = useState(5)
 
   useEffect(() => {
     if (questionIndex >= questions.length) {
@@ -29,20 +30,39 @@ const App = () => {
     Alert.alert("correct")
     setQuestionIndex(questionIndex + 1)
   }
+  const restartGame = () => {
+    setQuestionIndex(0)
+    setLives(5)
+  }
+
+  const onWrong = () => {
+    if (lives <= 0) {
+      Alert.alert("Game Over", "Try Again", [{
+        text: "Try Again",
+        onPress: restartGame,
+      }])
+    } else {
+      Alert.alert("wrooong")
+      setLives(lives - 1)
+    }
+  }
 
   return (
     <View style={styles.root}>
-      <Header progress={questionIndex / questions.length} lives={5} />
+      <Header
+        progress={questionIndex / questions.length}
+        lives={lives}
+      />
 
       <OpenEndedQuestion
         question={question}
         onCorrect={onCorrect}
-        onWrong={() => Alert.alert("wrooong")}
+        onWrong={onWrong}
       />
       {/* <MultipleChoiceQuestion
         question={question}
         onCorrect={onCorrect}
-        onWrong={() => Alert.alert("wrooong")}
+        onWrong={onWrong}
       /> */}
 
     </View>
