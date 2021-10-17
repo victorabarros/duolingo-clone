@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { View, Alert } from 'react-native'
 import styles from './App.styles'
 import question from './assets/data/oneQuestionWithOption'
-import Question from './src/components/Question'
+import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
 const questions = [question]
 
 
@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <View style={styles.root}>
-      <Question
+      <MultipleChoiceQuestion
         question={question}
         onCorrect={onCorrect}
         onWrong={() => Alert.alert("wrooong")} />

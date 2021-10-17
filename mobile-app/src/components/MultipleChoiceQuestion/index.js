@@ -5,7 +5,7 @@ import ImageOption from '../ImageOption'
 import Button from '../Button'
 import styles from './styles'
 
-const Question = ({ question, onCorrect, onWrong }) => {
+const MultipleChoiceQuestion = ({ question, onCorrect, onWrong }) => {
   const [selected, setSelected] = useState(undefined)
 
   const onButtonPress = () => {
@@ -42,7 +42,7 @@ const Question = ({ question, onCorrect, onWrong }) => {
   )
 }
 
-Question.propTypes = {
+MultipleChoiceQuestion.propTypes = {
   question: PropTypes.shape({
     title: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(
@@ -62,4 +62,4 @@ Button.defaultProps = {
   onWrong: () => { },
 }
 
-export default Question
+export default MultipleChoiceQuestion
