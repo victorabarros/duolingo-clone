@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { View, Alert } from 'react-native'
+import { View, Alert, ActivityIndicator } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './App.styles'
 
 // import question from './assets/data/oneQuestionWithOption'
@@ -16,6 +17,11 @@ const App = () => {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [question, setQuestion] = useState(questions[questionIndex])
   const [lives, setLives] = useState(5)
+  const [hasLoaded, setHasLoaded] = useState(false)
+
+  useEffect(() => {
+    loadData()
+  }, [])
 
   useEffect(() => {
     if (questionIndex >= questions.length) {
@@ -26,13 +32,33 @@ const App = () => {
     }
   }, [questionIndex])
 
-  const onCorrect = () => {
-    Alert.alert("correct")
-    setQuestionIndex(questionIndex + 1)
+  useEffect(() => {
+    saveData()
+  }, [questionIndex, lives])
+
+  const saveData = async () => {
+    await AsyncStorage.setItem("questionIndex", questionIndex.toString())
+    await AsyncStorage.setItem("lives", lives.toString())
   }
+
+  const loadData = async () => {
+    const loadedQuestionIndex = await AsyncStorage.getItem("questionIndex")
+    if (loadedQuestionIndex) setQuestionIndex(parseInt(loadedQuestionIndex))
+
+    const loadedLives = await AsyncStorage.getItem("lives")
+    if (loadedLives) setLives(parseInt(loadedLives))
+
+    setHasLoaded(true)
+  }
+
   const restartGame = () => {
     setQuestionIndex(0)
     setLives(5)
+  }
+
+  const onCorrect = () => {
+    Alert.alert("correct")
+    setQuestionIndex(questionIndex + 1)
   }
 
   const onWrong = () => {
@@ -45,6 +71,17 @@ const App = () => {
       Alert.alert("wrooong")
       setLives(lives - 1)
     }
+  }
+
+  if (!hasLoaded) {
+    return (
+      <View style={styles.root}>
+        <ActivityIndicator
+          color="blue"
+          size="large"
+        />
+      </View>
+    )
   }
 
   return (

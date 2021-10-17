@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   questioner: {
     width: '30%',
     aspectRatio: 1 / 1,
+    marginBottom: -7,
   },
   sentenceContainer: {
     justifyContent: 'center',
