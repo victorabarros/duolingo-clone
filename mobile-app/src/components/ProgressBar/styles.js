@@ -2,10 +2,9 @@ import { StyleSheet } from 'react-native'
 
 const barHeight = 15
 
-
 const styles = StyleSheet.create({
   bg: {
-    width: '100%',
+    flex: 1,
     height: barHeight,
     borderRadius: barHeight / 2,
 

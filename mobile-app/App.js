@@ -10,9 +10,10 @@ import Header from './src/components/Header'
 // import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
 import OpenEndedQuestion from './src/components/OpenEndedQuestion'
 
+console.log("starting")
 
 const App = () => {
-  const [questionIndex, setQuestionIndex] = useState(0)
+  const [questionIndex, setQuestionIndex] = useState(1)
   const [question, setQuestion] = useState(questions[questionIndex])
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const App = () => {
 
   return (
     <View style={styles.root}>
-      <Header progress={questionIndex / questions.length} />
+      <Header progress={questionIndex / questions.length} lives={5} />
 
       <OpenEndedQuestion
         question={question}
