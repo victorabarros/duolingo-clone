@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Text, View, Alert, TextInput, Image } from 'react-native'
+import React, { useState } from 'react'
+import { Text, View, TextInput, Image } from 'react-native'
 import Button from '../Button'
 import PropTypes from 'prop-types'
 import styles from './styles'

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Text, View, Alert } from 'react-native'
+import React, { useState } from 'react'
+import { Text, View } from 'react-native'
 import PropTypes from 'prop-types'
 import ImageOption from '../ImageOption'
 import Button from '../Button'
