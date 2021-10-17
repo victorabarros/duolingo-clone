@@ -5,7 +5,17 @@ import PropTypes from 'prop-types'
 import styles from './styles'
 import questioner from '../../../assets/questioner.jpg'
 
-const OpenEndedQuestion = () => {
+const OpenEndedQuestion = ({ question, onCorrect, onWrong }) => {
+  const [input, setInput] = useState('')
+
+  const { title, answer } = question
+
+  const onButtonPress = () => {
+    // TODO:
+    // hide keyboard
+    // check answer
+  }
+
   return (
     <>
       <Text style={styles.title}>Translate this sentence</Text>
@@ -16,15 +26,36 @@ const OpenEndedQuestion = () => {
           source={questioner}
         />
         <View style={styles.sentenceContainer}>
-          <Text style={styles.sentence}>Sentence</Text>
+          <Text style={styles.sentence}>{title}</Text>
         </View>
       </View>
 
-      <TextInput style={styles.textInput} placeholder="Type in English" />
+      <TextInput
+        style={styles.textInput}
+        placeholder='Type in English'
+        value={input}
+        onChangeText={setInput}
+        textAlignVertical='top'
+        multiline
+      />
+      {/* TODO: add clear scratch button */}
 
-      <Button />
+      <Button onPress={onButtonPress} />
     </>
   )
+}
+
+OpenEndedQuestion.propTypes = {
+  question: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    answer: PropTypes.string.isRequired,
+  }).isRequired,
+  onCorrect: PropTypes.func.isRequired,
+  onWrong: PropTypes.func,
+}
+
+OpenEndedQuestion.defaultProps = {
+  onWrong: () => { },
 }
 
 export default OpenEndedQuestion
