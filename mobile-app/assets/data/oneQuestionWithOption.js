@@ -1,5 +1,6 @@
 export default {
   title: 'Which of these is "the glass"?',
+  type: "MULTIPLE_CHOICER",
   options: [
     {
       id: "option0",

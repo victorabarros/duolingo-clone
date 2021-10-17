@@ -2,16 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { View, Alert, ActivityIndicator } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './App.styles'
-
-// import question from './assets/data/oneQuestionWithOption'
-// const questions = [question]
-import questions from './assets/data/openEndedQuestion'
+import questions from './assets/data/allQuestions'
 import Header from './src/components/Header'
-
-// import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
+import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
 import OpenEndedQuestion from './src/components/OpenEndedQuestion'
 
-console.log("starting")
+const Question = (props) => {
+  switch (props.question.type) {
+    case 'OPEN_ENDED':
+      return <OpenEndedQuestion {...props} />
+    case 'MULTIPLE_CHOICER':
+      return <MultipleChoiceQuestion {...props} />
+  }
+}
 
 const App = () => {
   const [questionIndex, setQuestionIndex] = useState(0)
@@ -57,18 +60,18 @@ const App = () => {
   }
 
   const onCorrect = () => {
-    Alert.alert("correct")
+    // TODO add feedback
     setQuestionIndex(questionIndex + 1)
   }
 
   const onWrong = () => {
     if (lives <= 0) {
-      Alert.alert("Game Over", "Try Again", [{
+      Alert.alert("Game Over", "", [{
         text: "Try Again",
         onPress: restartGame,
       }])
     } else {
-      Alert.alert("wrooong")
+      // TODO add feedback
       setLives(lives - 1)
     }
   }
@@ -86,21 +89,17 @@ const App = () => {
 
   return (
     <View style={styles.root}>
+
       <Header
         progress={questionIndex / questions.length}
         lives={lives}
       />
 
-      <OpenEndedQuestion
+      <Question
         question={question}
         onCorrect={onCorrect}
         onWrong={onWrong}
       />
-      {/* <MultipleChoiceQuestion
-        question={question}
-        onCorrect={onCorrect}
-        onWrong={onWrong}
-      /> */}
 
     </View>
   )
