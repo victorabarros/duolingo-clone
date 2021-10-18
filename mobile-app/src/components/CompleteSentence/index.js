@@ -1,45 +1,75 @@
 import React, { useState } from 'react'
-import { Text, View, TextInput, Image } from 'react-native'
+import { Text, View, Pressable, Image } from 'react-native'
 import Button from '../Button'
 import PropTypes from 'prop-types'
 import styles from './styles'
 
+const Option = ({ text, isSelected, onPress }) => {
+  return (
+    <Pressable
+      style={[styles.optionContainer, isSelected && { backgroundColor: 'lightgray' }]}
+      onPress={onPress}
+    >
+      <Text style={[styles.text, { color: (isSelected ? 'lightgray' : 'black') }]}>{text}</Text>
+    </Pressable>
+  )
+}
+
 const CompleteSentence = ({ question, onCorrect, onWrong }) => {
-  const sentence = 'una niña, una'
-  const options = ['yo', 'el', 'mujer']
+  const [selected, setSelected] = useState(undefined)
+
+  const { image, sentence, options } = question
+
+  const onButtonPress = () => {
+    selected.correct
+      ? onCorrect()
+      : onWrong()
+
+    setSelected(undefined)
+  }
 
   return (
     <>
       <Text style={styles.title}>Complete the sentence</Text>
 
-      <Image style={styles.image} source={{ uri: question.image }} />
+      <Image style={styles.image} source={{ uri: image }} />
 
       <View style={styles.body}>
         <View style={styles.sentenceContainer}>
           <Text style={[styles.text, { textDecorationLine: 'underline' }]}>{sentence}</Text>
           <View style={styles.sentenceSpot}>
+            {selected && (
+              <Option
+                text={selected.text}
+                onPress={() => setSelected(undefined)}
+              />
+            )}
           </View>
         </View>
 
         <View style={styles.optionsContainer}>
+
           {options.map(option => {
-            return (
-              <View style={styles.optionContainer}>
-                <Text style={styles.text}>{option}</Text>
-              </View>
-            )
+            const { id, text } = option
+            return <Option
+              key={id}
+              text={text}
+              isSelected={selected?.id === id}
+              onPress={() => setSelected(option)}
+            />
           })}
 
         </View>
       </View>
 
-      <Button />
+      <Button onPress={onButtonPress} disabled={!selected} />
     </>
   )
 }
 
 CompleteSentence.propTypes = {
   question: PropTypes.shape({
+    image: PropTypes.string.isRequired,
     sentence: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(
       PropTypes.shape({

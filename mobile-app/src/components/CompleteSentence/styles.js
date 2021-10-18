@@ -26,9 +26,11 @@ const styles = StyleSheet.create({
   },
   sentenceSpot: {
     height: 40,
-    minWidth: 70,
+    minWidth: 60,
     margin: 5,
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    alignItems: 'baseline',
+    justifyContent: 'center',
   },
   optionsContainer: {
     flexDirection: 'row',
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
     padding: 5,
     borderColor: "lightgray",
     alignItems: 'center',
+    alignSelf: 'center',
   },
 })
 
