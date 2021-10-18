@@ -1,5 +1,29 @@
 export default [
   {
+    id: 'complete_sentence_q0',
+    type: "COMPLETE_SENTENCE",
+    sentence: 'una niña, una',
+    options: [
+      {
+        id: "option0",
+        text: "yo",
+      },
+      {
+        id: "option1",
+        text: "el",
+      },
+      {
+        id: "option2",
+        text: "mujer",
+        correct: true,
+      },
+      {
+        id: "option3",
+        text: "hombre",
+      },
+    ]
+  },
+  {
     id: 'multiple_choicer_q1',
     type: "MULTIPLE_CHOICER",
     title: 'Which of these is "the glass"?',

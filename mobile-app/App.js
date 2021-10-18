@@ -6,6 +6,7 @@ import questions from './assets/data/allQuestions'
 import Header from './src/components/Header'
 import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
 import OpenEndedQuestion from './src/components/OpenEndedQuestion'
+import CompleteSentence from './src/components/CompleteSentence'
 
 const Question = (props) => {
   switch (props.question.type) {
@@ -13,13 +14,15 @@ const Question = (props) => {
       return <OpenEndedQuestion {...props} />
     case 'MULTIPLE_CHOICER':
       return <MultipleChoiceQuestion {...props} />
+    case 'COMPLETE_SENTENCE':
+      return <CompleteSentence {...props} />
   }
 }
 
 const App = () => {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [question, setQuestion] = useState(questions[questionIndex])
-  const [lives, setLives] = useState(5)
+  const [lives, setLives] = useState(2)
   const [hasLoaded, setHasLoaded] = useState(false)
 
   useEffect(() => {
