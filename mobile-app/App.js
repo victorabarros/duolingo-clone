@@ -8,13 +8,19 @@ import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
 import OpenEndedQuestion from './src/components/OpenEndedQuestion'
 import CompleteSentence from './src/components/CompleteSentence'
 
+const INITIAL_LIVES = 2
+
+const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5)
+
 const Question = (props) => {
   switch (props.question.type) {
     case 'OPEN_ENDED':
       return <OpenEndedQuestion {...props} />
     case 'MULTIPLE_CHOICER':
+      shuffleArray(props.question.options)
       return <MultipleChoiceQuestion {...props} />
     case 'COMPLETE_SENTENCE':
+      shuffleArray(props.question.options)
       return <CompleteSentence {...props} />
   }
 }
@@ -22,7 +28,7 @@ const Question = (props) => {
 const App = () => {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [question, setQuestion] = useState(questions[questionIndex])
-  const [lives, setLives] = useState(2)
+  const [lives, setLives] = useState(INITIAL_LIVES)
   const [hasLoaded, setHasLoaded] = useState(false)
 
   useEffect(() => {
@@ -59,12 +65,13 @@ const App = () => {
 
   const restartGame = () => {
     setQuestionIndex(0)
-    setLives(5)
+    setLives(INITIAL_LIVES)
   }
 
   const onCorrect = () => {
     // TODO add feedback
     setQuestionIndex(questionIndex + 1)
+    // TODO fade out
   }
 
   const onWrong = () => {
