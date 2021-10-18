@@ -2,6 +2,7 @@ export default [
   {
     id: 'complete_sentence_q0',
     type: "COMPLETE_SENTENCE",
+    image: 'https://image.freepik.com/free-vector/mom-little-daughter-taking-selfie-together-using-smartphone-video-call-waving-hello-flat-illustration_74855-10942.jpg',
     sentence: 'una niña, una',
     options: [
       {

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    paddingVertical: "10%",
+    paddingVertical: "5%",
     width: "100%",
   },
   sentenceContainer: {

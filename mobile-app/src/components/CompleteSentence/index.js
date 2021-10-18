@@ -3,7 +3,6 @@ import { Text, View, TextInput, Image } from 'react-native'
 import Button from '../Button'
 import PropTypes from 'prop-types'
 import styles from './styles'
-import daughterMother from '../../../assets/daughter_mother.jpg'
 
 const CompleteSentence = ({ question, onCorrect, onWrong }) => {
   const sentence = 'una niña, una'
@@ -13,7 +12,7 @@ const CompleteSentence = ({ question, onCorrect, onWrong }) => {
     <>
       <Text style={styles.title}>Complete the sentence</Text>
 
-      <Image style={styles.image} source={daughterMother} />
+      <Image style={styles.image} source={{ uri: question.image }} />
 
       <View style={styles.body}>
         <View style={styles.sentenceContainer}>
