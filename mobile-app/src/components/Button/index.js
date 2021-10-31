@@ -1,18 +1,17 @@
-import React from 'react'
-import { Pressable, Text } from 'react-native'
-import PropTypes from 'prop-types'
-import styles from './styles'
+import React from "react"
+import { Pressable, Text } from "react-native"
+import PropTypes from "prop-types"
+import styles from "./styles"
 
-const Button = ({ text, onPress, disabled }) => {
-  return (
-    <Pressable
-      onPress={onPress}
-      style={[styles.container, disabled && styles.disabledContainer]}
-      disabled={disabled}>
-      <Text style={styles.text}>{text}</Text>
-    </Pressable>
-  )
-}
+const Button = ({ text, onPress, disabled }) => (
+  <Pressable
+    onPress={onPress}
+    style={[styles.container, disabled && styles.disabledContainer]}
+    disabled={disabled}
+  >
+    <Text style={styles.text}>{text}</Text>
+  </Pressable>
+)
 
 Button.propTypes = {
   onPress: PropTypes.func,
@@ -21,9 +20,9 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  onPress: () => console.log('click'),
+  onPress: () => console.log("click"),
   disabled: false,
-  text: 'Check'
+  text: "Check",
 }
 
 export default Button

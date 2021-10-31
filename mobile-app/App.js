@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { View, Alert, ActivityIndicator } from 'react-native'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import styles from './App.styles'
-import questions from './assets/data/allQuestions'
-import Header from './src/components/Header'
-import MultipleChoiceQuestion from './src/components/MultipleChoiceQuestion'
-import OpenEndedQuestion from './src/components/OpenEndedQuestion'
-import CompleteSentence from './src/components/CompleteSentence'
+import React, { useEffect, useState } from "react"
+import { View, Alert, ActivityIndicator } from "react-native"
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import styles from "./App.styles"
+import questions from "./assets/data/allQuestions"
+import Header from "./src/components/Header"
+import MultipleChoiceQuestion from "./src/components/MultipleChoiceQuestion"
+import OpenEndedQuestion from "./src/components/OpenEndedQuestion"
+import CompleteSentence from "./src/components/CompleteSentence"
 
 const INITIAL_LIVES = 2
 
@@ -14,15 +14,16 @@ const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5)
 
 const Question = (props) => {
   switch (props.question.type) {
-    case 'OPEN_ENDED':
+    case "OPEN_ENDED":
       return <OpenEndedQuestion {...props} />
-    case 'MULTIPLE_CHOICER':
+    case "MULTIPLE_CHOICER":
       shuffleArray(props.question.options)
       return <MultipleChoiceQuestion {...props} />
-    case 'COMPLETE_SENTENCE':
+    case "COMPLETE_SENTENCE":
       shuffleArray(props.question.options)
       return <CompleteSentence {...props} />
   }
+  return undefined
 }
 
 const App = () => {
@@ -30,6 +31,21 @@ const App = () => {
   const [question, setQuestion] = useState(questions[questionIndex])
   const [lives, setLives] = useState(INITIAL_LIVES)
   const [hasLoaded, setHasLoaded] = useState(false)
+
+  const saveData = async () => {
+    await AsyncStorage.setItem("questionIndex", questionIndex.toString())
+    await AsyncStorage.setItem("lives", lives.toString())
+  }
+
+  const loadData = async () => {
+    // const loadedQuestionIndex = await AsyncStorage.getItem("questionIndex")
+    // if (loadedQuestionIndex) setQuestionIndex(parseInt(loadedQuestionIndex))
+
+    // const loadedLives = await AsyncStorage.getItem("lives")
+    // if (loadedLives) setLives(parseInt(loadedLives))
+
+    setHasLoaded(true)
+  }
 
   useEffect(() => {
     loadData()
@@ -47,21 +63,6 @@ const App = () => {
   useEffect(() => {
     saveData()
   }, [questionIndex, lives])
-
-  const saveData = async () => {
-    await AsyncStorage.setItem("questionIndex", questionIndex.toString())
-    await AsyncStorage.setItem("lives", lives.toString())
-  }
-
-  const loadData = async () => {
-    const loadedQuestionIndex = await AsyncStorage.getItem("questionIndex")
-    if (loadedQuestionIndex) setQuestionIndex(parseInt(loadedQuestionIndex))
-
-    const loadedLives = await AsyncStorage.getItem("lives")
-    if (loadedLives) setLives(parseInt(loadedLives))
-
-    setHasLoaded(true)
-  }
 
   const restartGame = () => {
     setQuestionIndex(0)

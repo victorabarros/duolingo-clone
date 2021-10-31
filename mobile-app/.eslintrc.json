@@ -18,6 +18,11 @@
     "react"
   ],
   "rules": {
-    "quotes": ["error", "single"]
+    "quotes": ["error", "double"],
+    "semi": ["off"],
+    "default-case": ["off"],
+    "react/prop-types": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "react/jsx-props-no-spreading": ["off"]
   }
 }
