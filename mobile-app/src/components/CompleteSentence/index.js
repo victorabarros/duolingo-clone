@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import { Text, View, Pressable, Image } from 'react-native'
-import Button from '../Button'
-import PropTypes from 'prop-types'
-import styles from './styles'
+import React, { useState } from "react"
+import {
+  Text, View, Pressable, Image,
+} from "react-native"
+import PropTypes from "prop-types"
+import Button from "../Button"
+import styles from "./styles"
 
-const Option = ({ text, isSelected, onPress }) => {
-  return (
-    <Pressable
-      style={[styles.optionContainer, isSelected && { backgroundColor: 'lightgray' }]}
-      onPress={onPress}
-    >
-      <Text style={[styles.text, { color: (isSelected ? 'lightgray' : 'black') }]}>{text}</Text>
-    </Pressable>
-  )
-}
+const Option = ({ text, isSelected, onPress }) => (
+  <Pressable
+    style={[styles.optionContainer, isSelected && { backgroundColor: "lightgray" }]}
+    onPress={onPress}
+  >
+    <Text style={[styles.text, { color: (isSelected ? "lightgray" : "black") }]}>{text}</Text>
+  </Pressable>
+)
 
 const CompleteSentence = ({ question, onCorrect, onWrong }) => {
   const [selected, setSelected] = useState(undefined)
@@ -36,7 +36,7 @@ const CompleteSentence = ({ question, onCorrect, onWrong }) => {
 
       <View style={styles.body}>
         <View style={styles.sentenceContainer}>
-          <Text style={[styles.text, { textDecorationLine: 'underline' }]}>{sentence}</Text>
+          <Text style={[styles.text, { textDecorationLine: "underline" }]}>{sentence}</Text>
           <View style={styles.sentenceSpot}>
             {selected && (
               <Option
@@ -49,14 +49,16 @@ const CompleteSentence = ({ question, onCorrect, onWrong }) => {
 
         <View style={styles.optionsContainer}>
 
-          {options.map(option => {
+          {options.map((option) => {
             const { id, text } = option
-            return <Option
-              key={id}
-              text={text}
-              isSelected={selected?.id === id}
-              onPress={() => setSelected(option)}
-            />
+            return (
+              <Option
+                key={id}
+                text={text}
+                isSelected={selected?.id === id}
+                onPress={() => setSelected(option)}
+              />
+            )
           })}
 
         </View>
@@ -76,7 +78,7 @@ CompleteSentence.propTypes = {
         id: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
         correct: PropTypes.bool,
-      })
+      }),
     ).isRequired,
   }).isRequired,
   onCorrect: PropTypes.func.isRequired,

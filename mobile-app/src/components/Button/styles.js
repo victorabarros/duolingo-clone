@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 
     // undeline
     borderBottomWidth: 1.5,
-    borderColor: "white"
+    borderColor: "white",
   },
 })
 

@@ -1,11 +1,10 @@
-import { StyleSheet } from 'react-native'
-
+import { StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
-    alignSelf: 'flex-start',
+    fontWeight: "bold",
+    alignSelf: "flex-start",
   },
   image: {
     height: "25%",
@@ -18,8 +17,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   sentenceContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   text: {
     fontSize: 15,
@@ -29,15 +28,15 @@ const styles = StyleSheet.create({
     minWidth: 60,
     margin: 5,
     borderBottomWidth: 1,
-    alignItems: 'baseline',
-    justifyContent: 'center',
+    alignItems: "baseline",
+    justifyContent: "center",
   },
   optionsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    flexDirection: "row",
+    justifyContent: "space-evenly",
     marginHorizontal: "20%",
-    alignItems: 'center',
-    flex: 1
+    alignItems: "center",
+    flex: 1,
   },
   optionContainer: {
     borderWidth: 1,
@@ -46,8 +45,8 @@ const styles = StyleSheet.create({
     minWidth: 30,
     padding: 5,
     borderColor: "lightgray",
-    alignItems: 'center',
-    alignSelf: 'center',
+    alignItems: "center",
+    alignSelf: "center",
   },
 })
 

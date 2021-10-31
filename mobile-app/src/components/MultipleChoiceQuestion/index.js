@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Text, View } from 'react-native'
-import PropTypes from 'prop-types'
-import ImageOption from '../ImageOption'
-import Button from '../Button'
-import styles from './styles'
+import React, { useState } from "react"
+import { Text, View } from "react-native"
+import PropTypes from "prop-types"
+import ImageOption from "../ImageOption"
+import Button from "../Button"
+import styles from "./styles"
 
 const MultipleChoiceQuestion = ({ question, onCorrect, onWrong }) => {
   const [selected, setSelected] = useState(undefined)
@@ -51,7 +51,7 @@ MultipleChoiceQuestion.propTypes = {
         text: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
         correct: PropTypes.bool,
-      })
+      }),
     ).isRequired,
   }).isRequired,
   onCorrect: PropTypes.func.isRequired,

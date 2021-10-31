@@ -1,5 +1,4 @@
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   optionContainer: {
@@ -10,14 +9,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
 
     // size
-    width: '48%',
-    height: '48%',
-    alignItems: 'center',
+    width: "48%",
+    height: "48%",
+    alignItems: "center",
 
     // spacing
     padding: 10,
-
-    alignItems: 'center',
   },
   selectedOptionContainer: {
     backgroundColor: "#DDF4FE",
@@ -25,15 +22,15 @@ const styles = StyleSheet.create({
   },
   optionImage: {
     width: "100%",
-    flex: 1
+    flex: 1,
   },
   optionText: {
-    fontWeight: 'bold',
-    color: "black"
+    fontWeight: "bold",
+    color: "black",
   },
   selectedOptionText: {
-    fontWeight: 'bold',
-    color: "#40BEF7"
+    fontWeight: "bold",
+    color: "#40BEF7",
   },
 });
 

@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
-import { Text, View, TextInput, Image } from 'react-native'
-import Button from '../Button'
-import PropTypes from 'prop-types'
-import styles from './styles'
-import questioner from '../../../assets/questioner.jpg'
+import React, { useState } from "react"
+import {
+  Text, View, TextInput, Image,
+} from "react-native"
+import PropTypes from "prop-types"
+import Button from "../Button"
+import styles from "./styles"
+import questioner from "../../../assets/questioner.jpg"
 
 const isEqual = (string1, string2) => string1.toUpperCase().trim() === string2.toUpperCase().trim()
 
 const OpenEndedQuestion = ({ question, onCorrect, onWrong }) => {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState("")
 
   const { title, answer } = question
 
@@ -19,7 +21,7 @@ const OpenEndedQuestion = ({ question, onCorrect, onWrong }) => {
       ? onCorrect()
       : onWrong()
 
-    setInput('')
+    setInput("")
   }
 
   return (
@@ -38,10 +40,10 @@ const OpenEndedQuestion = ({ question, onCorrect, onWrong }) => {
 
       <TextInput
         style={styles.textInput}
-        placeholder='Type in English'
+        placeholder="Type in English"
         value={input}
         onChangeText={setInput}
-        textAlignVertical='top'
+        textAlignVertical="top"
         multiline
       />
       {/* TODO: add clear scratch button */}

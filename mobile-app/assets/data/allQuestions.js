@@ -1,9 +1,9 @@
 export default [
   {
-    id: 'complete_sentence_q0',
+    id: "complete_sentence_q0",
     type: "COMPLETE_SENTENCE",
-    image: 'https://image.freepik.com/free-vector/mom-little-daughter-taking-selfie-together-using-smartphone-video-call-waving-hello-flat-illustration_74855-10942.jpg',
-    sentence: 'una niña, una',
+    image: "https://image.freepik.com/free-vector/mom-little-daughter-taking-selfie-together-using-smartphone-video-call-waving-hello-flat-illustration_74855-10942.jpg",
+    sentence: "una niña, una",
     options: [
       {
         id: "option0",
@@ -22,12 +22,12 @@ export default [
         id: "option3",
         text: "hombre",
       },
-    ]
+    ],
   },
   {
-    id: 'multiple_choicer_q1',
+    id: "multiple_choicer_q1",
     type: "MULTIPLE_CHOICER",
-    title: 'Which of these is "the glass"?',
+    title: "Which of these is \"the glass\"?",
     options: [
       {
         id: "option0",
@@ -50,12 +50,12 @@ export default [
         image: "https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/coffee.png",
         text: "el café",
       },
-    ]
+    ],
   },
   {
-    id: 'multiple_choicer_q2',
+    id: "multiple_choicer_q2",
     type: "MULTIPLE_CHOICER",
-    title: 'Which of these is "the coffee"?',
+    title: "Which of these is \"the coffee\"?",
     options: [
       {
         id: "option0",
@@ -78,12 +78,12 @@ export default [
         text: "el café",
         correct: true,
       },
-    ]
+    ],
   },
   {
-    id: 'multiple_choicer_q3',
+    id: "multiple_choicer_q3",
     type: "MULTIPLE_CHOICER",
-    title: 'Which of these is "the cup"?',
+    title: "Which of these is \"the cup\"?",
     options: [
       {
         id: "option0",
@@ -106,12 +106,12 @@ export default [
         image: "https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/coffee.png",
         text: "el café",
       },
-    ]
+    ],
   },
   {
-    id: 'multiple_choicer_q4',
+    id: "multiple_choicer_q4",
     type: "MULTIPLE_CHOICER",
-    title: 'Which of these is "the milk"?',
+    title: "Which of these is \"the milk\"?",
     options: [
       {
         id: "option0",
@@ -134,24 +134,41 @@ export default [
         image: "https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/coffee.png",
         text: "el café",
       },
-    ]
+    ],
   },
   {
-    id: 'open_ended_q5',
-    type: 'OPEN_ENDED',
-    title: 'Yo soy un hombre',
-    answer: 'I am a man',
+    id: "open_ended_q5",
+    type: "OPEN_ENDED",
+    title: "Yo soy un hombre",
+    answer: "I am a man",
   },
   {
-    id: 'open_ended_q6',
-    type: 'OPEN_ENDED',
-    title: 'La mujer',
-    answer: 'the woman',
+    id: "open_ended_q6",
+    type: "OPEN_ENDED",
+    title: "La mujer",
+    answer: "the woman",
   },
   {
-    id: 'open_ended_q7',
-    type: 'OPEN_ENDED',
-    title: 'Me gusta React Native',
-    answer: 'I like react native',
+    id: "open_ended_q7",
+    type: "OPEN_ENDED",
+    title: "Me gusta React Native",
+    answer: "I like react native",
+  },
+  {
+    id: "complete_sentence_q8",
+    type: "COMPLETE_MULTIPLE_SENTENCES",
+    sentence: "%SPOT niño, %SPOT niña",
+    options: [
+      {
+        id: "option0",
+        text: "la",
+        order: 0,
+      },
+      {
+        id: "option1",
+        text: "el",
+        order: 1,
+      },
+    ],
   },
 ]

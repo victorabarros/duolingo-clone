@@ -1,5 +1,5 @@
 export default {
-  title: 'Which of these is "the glass"?',
+  title: "Which of these is \"the glass\"?",
   type: "MULTIPLE_CHOICER",
   options: [
     {
@@ -23,5 +23,5 @@ export default {
       image: "https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/coffee.png",
       text: "el café",
     },
-  ]
+  ],
 }
