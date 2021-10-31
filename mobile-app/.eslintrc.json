@@ -24,6 +24,8 @@
     "react/prop-types": ["off"],
     "react/jsx-filename-extension": ["off"],
     "react/jsx-props-no-spreading": ["off"],
-    "no-floating-decimal": ["off"]
+    "no-floating-decimal": ["off"],
+    "func-names": ["off"],
+    "no-unused-expressions": ["off"]
   }
 }

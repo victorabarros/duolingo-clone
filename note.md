@@ -63,3 +63,23 @@ export default App
 ```
 
 ## class 3.11 prop types
+
+## extra studies
+
+### Testing
+
+https://reactnative.dev/docs/testing-overview
+
+> React Native comes with two such tools configured out of the box: ESLint for linting and Flow for type checking. You can also use TypeScript, which is a typed language that compiles to plain JavaScript.
+
+#### ESLint
+
+https://eslint.org/docs/user-guide/getting-started
+
+`yarn add eslint --dev`
+`sudo yarn run eslint --init`
+use on .eslintrc: `"ecmaVersion": "latest"`
+
+#### how to use
+
+`yarn run eslint --fix .`
