@@ -1,7 +1,7 @@
-import React from "react";
-import { Text, Image, Pressable } from "react-native";
-import PropTypes from "prop-types";
-import styles from "./styles";
+import React from "react"
+import { Text, Image, Pressable } from "react-native"
+import PropTypes from "prop-types"
+import styles from "./styles"
 
 const ImageOption = ({
   image, text, isSelected, onPress,

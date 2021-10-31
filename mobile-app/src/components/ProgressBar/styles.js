@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from "react-native"
 
 const barHeight = 15
 
@@ -8,20 +8,20 @@ const styles = StyleSheet.create({
     height: barHeight,
     borderRadius: barHeight / 2,
 
-    backgroundColor: 'lightgrey',
+    backgroundColor: "lightgrey",
   },
   fg: {
-    backgroundColor: 'orange',
+    backgroundColor: "orange",
   },
   highlight: {
-    width: '95%',
+    width: "95%",
     height: barHeight / 3,
     borderRadius: barHeight / 2,
     marginTop: barHeight / 5,
 
-    alignSelf: 'center',
+    alignSelf: "center",
 
-    backgroundColor: 'white',
+    backgroundColor: "white",
     opacity: .2,
   },
 })
